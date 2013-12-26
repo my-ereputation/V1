@@ -13,6 +13,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Represent table Role
+ * @author Clement
+ *
+ */
+
 @Entity
 @Table(name = "role", catalog = "usermanagement")
 @XmlRootElement(name = "role")

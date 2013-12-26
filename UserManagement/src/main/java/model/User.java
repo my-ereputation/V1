@@ -11,6 +11,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Represent table User
+ * @author Clement
+ *
+ */
 @Entity
 @Table(name = "user", catalog = "usermanagement")
 @XmlRootElement(name = "user")
