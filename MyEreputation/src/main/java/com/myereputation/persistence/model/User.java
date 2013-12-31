@@ -12,8 +12,10 @@ public class User {
 	private Integer idUser;
 	private boolean isPremium;
 
+	public User() {
+	}
+
 	public User(Integer idUser, boolean isPremium) {
-		super();
 		this.idUser = idUser;
 		this.isPremium = isPremium;
 	}
