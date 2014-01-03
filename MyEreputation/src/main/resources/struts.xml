@@ -8,12 +8,25 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<!-- internalization -->
 	<constant name="struts.custom.i18n.resources" value="myereputation"></constant>
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
 	<!-- include other struts xml files -->
-	<include file="header.xml" />
+<!-- 	<include file="header.xml" /> -->
 <!-- 	<include file="json-action.xml" /> -->
 
-	<package name="com.orange.api.rfid.taas.customer.struts.body"
-		namespace="/" extends="struts-default">
+	<package name="user" extends="struts-default" namespace="/">
+        <result-types>
+        	<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+       </result-types>
+        <action name="nbUser" class="com.myereputation.action.UserAction"> 
+            <result>/views/user.jsp</result> 
+        </action>
+        <action name="viewRegionList" class="com.myereputation.action.RegionAction" method="view">
+        	<result>/views/regions.jsp</result>
+        </action>
+    </package>
+
+<!-- 	<package name="com.orange.api.rfid.taas.customer.struts.body" -->
+<!-- 		namespace="/" extends="struts-default"> -->
 <!-- 		<result-types> -->
 <!-- 			<result-type name="tiles" -->
 <!-- 				class="org.apache.struts2.views.tiles.TilesResult" /> -->
@@ -28,6 +41,6 @@
 <!-- 			<result name="input" type="tiles">login</result> -->
 <!-- 			<result name="error" type="tiles">login</result> -->
 <!-- 		</action> -->
-	</package>
+<!-- 	</package> -->
 	
 </struts>

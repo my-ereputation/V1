@@ -26,10 +26,10 @@
 <!-- 		<put-attribute name="footer" value="/views/footer.jsp" /> -->
 <!-- 	</definition> -->
 	
-	<definition name="dashboard" extends="baseLayoutCustomer">
-		<put-attribute name="title" value="myereputation" />
-		<put-attribute name="body" value="/views/Dashboard.jsp" />
-	</definition>
+<!-- 	<definition name="dashboard" extends="baseLayoutCustomer"> -->
+<!-- 		<put-attribute name="title" value="myereputation" /> -->
+<!-- 		<put-attribute name="body" value="/views/Dashboard.jsp" /> -->
+<!-- 	</definition> -->
 <!-- 	<definition name="monitoring" extends="baseLayoutCustomer"> -->
 <!-- 		<put-attribute name="title" value="myereputation" /> -->
 <!-- 		<put-attribute name="body" value="/views/Monitoring.jsp" /> -->
@@ -78,5 +78,26 @@
 <!-- 		<put-attribute name="title" value="myereputation" /> -->
 <!-- 		<put-attribute name="body" value="/views/ApplicationsViewDetail.jsp" /> -->
 <!-- 	</definition> -->
-	
+	<definition name="mainTemplate" template="/mainTemplate.jsp">
+      <put-attribute name="title"  value="User Registration Form"/>
+      <put-attribute name="header" value="/views/header.jsp"/>
+      <put-attribute name="menu"   value="/views/menu.jsp"/>
+      <put-attribute name="body"   value="/views/body.jsp"/>
+      <put-attribute name="footer"   value="/views/footer.jsp"/>
+   </definition>
+
+   <definition name="alia" extends="mainTemplate">
+      <put-attribute name="title"  value="Alia Bhatt"/>
+      <put-attribute name="body"   value="/views/alia.jsp"/>      
+   </definition>
+
+   <definition name="madhuri" extends="mainTemplate">
+      <put-attribute name="title"  value="Madhuri Dixit"/>
+      <put-attribute name="body"   value="/views/madhuri.jsp"/>      
+   </definition>
+   
+   <definition name="success" extends="mainTemplate">
+      <put-attribute name="title"  value="User Added Successfully"/>
+      <put-attribute name="body"   value="/views/success.jsp"/>      
+   </definition>
 </tiles-definitions>

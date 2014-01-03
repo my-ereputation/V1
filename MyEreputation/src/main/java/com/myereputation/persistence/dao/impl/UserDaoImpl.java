@@ -1,45 +1,43 @@
 package com.myereputation.persistence.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.myereputation.persistence.dao.UserDao;
 import com.myereputation.persistence.model.User;
-import com.myereputation.persistence.utils.AbstractDao;
 
-public class UserDaoImpl extends AbstractDao implements UserDao {
+@Repository("userDao")
+@Transactional
+public class UserDaoImpl implements UserDao {
 
-	private static final UserDao userDao = new UserDaoImpl();
-	private static Logger logger = Logger.getLogger(UserDaoImpl.class);
-
-	public static UserDao getInstance() {
-		return userDao;
-	}
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	public User getUserById(Integer userID) {
-		User user = (User) this.find(User.class, userID);
+		User user = (User) sessionFactory.getCurrentSession().load(User.class, userID);
 		return user;
 	}
 
 	public User insertUser(User user) {
-		user = (User) this.insert(user);
+		user = (User) sessionFactory.getCurrentSession().save(user);
 		return user;
 	}
 
-	public User updateUser(User user) {
-		return (User) this.update(user);
+	public void updateUser(User user) {
+		sessionFactory.getCurrentSession().update(user);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<User> getAllUsers() {
-		List<User> users = new ArrayList<User>();
-		users = (List<User>) this.findAll(User.class);
-		return users;
+		return (List<User>) sessionFactory.getCurrentSession().createCriteria(User.class).list();
 	}
 
 	public void deleteUser(User user) {
-		this.delete(user);
+		sessionFactory.getCurrentSession().delete(user);
 	}
 
 }
