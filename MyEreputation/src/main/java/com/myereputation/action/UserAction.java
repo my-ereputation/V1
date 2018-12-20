@@ -20,7 +20,6 @@ public class UserAction extends ActionSupport implements ModelDriven<UserBean> {
 	private UserBean userBean;
 	@Autowired
 	private UserService userService;
-	private List<RegionBean> users;
 	private String message;
 	
 	public UserBean getModel() {
