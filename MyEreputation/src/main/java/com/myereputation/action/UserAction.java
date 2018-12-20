@@ -1,11 +1,8 @@
 package com.myereputation.action;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.myereputation.bean.RegionBean;
 import com.myereputation.bean.UserBean;
 import com.myereputation.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
